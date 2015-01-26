@@ -1,0 +1,13 @@
+env = Environment()
+
+env['APP_TARGET'] = 'BlobTrackerApp'
+env['APP_SOURCES'] = ['BlobTrackerApp.cpp']
+#env['ASSETS'] = ['fingers.m4v']
+env['DEBUG'] = 0
+
+# Cinder-BlobTracker
+env = SConscript('../../../scons/SConscript', exports = 'env')
+# Cinder-OpenCV
+env = SConscript('../../../../Cinder-OpenCV/scons/SConscript', exports = 'env')
+
+SConscript('../../../../../scons/SConscript', exports = 'env')

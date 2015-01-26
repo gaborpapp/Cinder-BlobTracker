@@ -1,0 +1,12 @@
+import os
+
+Import('env')
+
+_BLOBTRACKER_INCLUDES = [Dir('../include').abspath]
+_BLOBTRACKER_SOURCES = ['BlobTracker.cpp', 'DebugDrawer.cpp']
+_BLOBTRACKER_SOURCES = [File('../src/mndl/blobtracker/' + s).abspath for s in _BLOBTRACKER_SOURCES]
+
+env.Append(APP_SOURCES = _BLOBTRACKER_SOURCES)
+env.Append(CPPPATH = _BLOBTRACKER_INCLUDES)
+
+Return('env')
