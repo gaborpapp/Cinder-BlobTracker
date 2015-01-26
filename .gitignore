@@ -1,0 +1,13 @@
+.DS_Store
+*.o
+*.app
+
+*.obj
+*.dll
+*.pdb
+*.exe
+
+.sconsign.dblite
+*.sw[a-z]
+
+samples/BlobTracker/scons/BlobTrackerApp
