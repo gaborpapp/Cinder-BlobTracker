@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="blocks">
+      <UniqueIdentifier>{6a213d7b-083e-4de7-bb44-c1efc5d63b42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="blocks\Cinder-BlobTracker">
+      <UniqueIdentifier>{5e65b587-a152-4f7f-9610-a9cd4f4d8de5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="blocks\Cinder-OpenCV">
+      <UniqueIdentifier>{8b7aca59-b267-44d2-8fac-68761d8a763d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="blocks\Cinder-BlobTracker\src">
+      <UniqueIdentifier>{92d45eff-719b-4953-8918-aee5625b3929}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="blocks\Cinder-BlobTracker\include">
+      <UniqueIdentifier>{6370ce8a-f442-4990-99e7-1f77abab5662}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="blocks\Cinder-OpenCV\include">
+      <UniqueIdentifier>{9122db37-323f-400a-9b53-4bd64c1c70e0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\BlobTrackerApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\mndl\blobtracker\BlobTracker.cpp">
+      <Filter>blocks\Cinder-BlobTracker\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\mndl\blobtracker\DebugDrawer.cpp">
+      <Filter>blocks\Cinder-BlobTracker\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\include\mndl\blobtracker\Blob.h">
+      <Filter>blocks\Cinder-BlobTracker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\mndl\blobtracker\BlobTracker.h">
+      <Filter>blocks\Cinder-BlobTracker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\mndl\blobtracker\DebugDrawer.h">
+      <Filter>blocks\Cinder-BlobTracker\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Cinder-OpenCV\include\CinderOpenCV.h">
+      <Filter>blocks\Cinder-OpenCV\include</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
