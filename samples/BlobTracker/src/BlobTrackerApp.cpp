@@ -73,7 +73,7 @@ void BlobTrackerApp::loadMovie( const fs::path &moviePath )
 
 void BlobTrackerApp::setupParams()
 {
-	mParams = params::InterfaceGl::create( "Parameters", ivec2( 200, 300 ) );
+	mParams = params::InterfaceGl::create( "Parameters", ivec2( 200, 320 ) );
 
 	mParams->addParam( "Fps", &mFps );
 	mParams->addSeparator();
@@ -85,6 +85,7 @@ void BlobTrackerApp::setupParams()
 	mParams->addParam( "Min area", &mBlobTrackerOptions.mMinArea ).min( 0.f ).max( 1.f ).step( 0.0001f );
 	mParams->addParam( "Max area", &mBlobTrackerOptions.mMaxArea ).min( 0.f ).max( 1.f ).step( 0.001f );
 	mParams->addParam( "Convex hull", &mBlobTrackerOptions.mConvexHullEnabled );
+	mParams->addParam( "Bounds", &mBlobTrackerOptions.mBoundsEnabled );
 	mParams->addParam( "Top left x", &mBlobTrackerOptions.mNormalizedRegionOfInterest.x1 )
 		.min( 0.f ).max( 1.f ).step( 0.001f ).group( "Region of Interest" );
 	mParams->addParam( "Top left y", &mBlobTrackerOptions.mNormalizedRegionOfInterest.y1 )
