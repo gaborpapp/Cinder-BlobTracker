@@ -96,7 +96,7 @@ void DebugDrawer::draw( const BlobTrackerRef &blobTracker, const Area &bounds, c
 				gl::color( ColorA( 1.0f, 1.0f, 0.0f, 0.5f ) );
 				gl::drawStrokedRect( blob->mBounds );
 			}
-			if ( trackerOptions.mConvexHullEnabled )
+			if ( trackerOptions.mConvexHullEnabled && blob->mConvexHull )
 			{
 				gl::color( ColorA( 1.0f, 0.0f, 1.0f, 0.5f ) );
 				gl::draw( *blob->mConvexHull.get() );
