@@ -224,7 +224,7 @@ void BlobTracker::trackBlobs( vector< BlobRef > newBlobs )
 					vec2 tD = mBlobs[ i ]->mPos - mBlobs[ i ]->mPrevPos;
 
 					// calculate the acceleration
-					float posDelta = tD.length();
+					float posDelta = glm::length( tD );
 					if ( posDelta > 0.001f )
 					{
 						mBlobsMovedSig( BlobEvent( mBlobs[ i ] ) );
