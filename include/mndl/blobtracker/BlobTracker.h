@@ -51,7 +51,7 @@ class BlobTracker
 		// Returns whether the calculation of the blobs' bounding box is enabled.
 		bool isBoundsEnabled() const { return mBoundsEnabled; }
 		// Returns whether the calculation of the blobs' convex hull is enabled.
-		bool isConvexHullEnabled() const { return mBoundsEnabled; }
+		bool isConvexHullEnabled() const { return mConvexHullEnabled; }
 		//! Returns normalization scale. All coordinates are normalized to [ 0, 0, normalizationScale, normalizationScale ]. 1.0 by default.
 		float getNormalizationScale() const { return mNormalizationScale; }
 
