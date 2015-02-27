@@ -66,6 +66,11 @@ class BlobTracker
 		void enableBlankOutsideRoi( bool blankOutsideRoi = true )
 		{ mBlankOutsideRoi = blankOutsideRoi; }
 
+		//! If /a enableInvert is true the thresholding pass returns an inverted image.
+		void enableThresholdInvert( bool enableInvert = true ) { mThresholdInvertEnabled = enableInvert; }
+		//! Returns whether thresholding inverts the image.
+		bool isThresholdInvert() const { return mThresholdInvertEnabled; }
+
 		bool mBoundsEnabled = true;
 		bool mConvexHullEnabled = false;
 		float mNormalizationScale = 1.f;
@@ -77,6 +82,7 @@ class BlobTracker
 		float mMaxArea = 0.45f;
 		ci::Rectf mNormalizedRegionOfInterest = ci::Rectf( 0.f, 0.f, 1.0f, 1.0f );
 		bool mBlankOutsideRoi = false;
+		bool mThresholdInvertEnabled = false;
 	};
 
 	static BlobTrackerRef create( const Options &options = Options() )

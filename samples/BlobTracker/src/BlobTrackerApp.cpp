@@ -81,6 +81,7 @@ void BlobTrackerApp::setupParams()
 	mParams->addText( "Blob tracker" );
 	mParams->addParam( "Flip", &mBlobTrackerOptions.mFlip );
 	mParams->addParam( "Threshold", &mBlobTrackerOptions.mThreshold ).min( 0 ).max( 255 );
+	mParams->addParam( "Threshold inverts", &mBlobTrackerOptions.mThresholdInvertEnabled );
 	mParams->addParam( "Blur size", &mBlobTrackerOptions.mBlurSize ).min( 1 ).max( 15 );
 	mParams->addParam( "Min area", &mBlobTrackerOptions.mMinArea ).min( 0.f ).max( 1.f ).step( 0.0001f );
 	mParams->addParam( "Max area", &mBlobTrackerOptions.mMaxArea ).min( 0.f ).max( 1.f ).step( 0.001f );

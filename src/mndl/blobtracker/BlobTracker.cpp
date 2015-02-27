@@ -66,7 +66,8 @@ void BlobTracker::update( const Channel8u &inputChannel )
 
 	cv::Mat thresholded;
 	cv::blur( input, mBlurred, cv::Size( mOptions.mBlurSize, mOptions.mBlurSize ) );
-	cv::threshold( mBlurred, thresholded, mOptions.mThreshold, 255, CV_THRESH_BINARY );
+	cv::threshold( mBlurred, thresholded, mOptions.mThreshold, 255,
+			mOptions.mThresholdInvertEnabled ? CV_THRESH_BINARY_INV : CV_THRESH_BINARY );
 	mThresholded = thresholded.clone();
 
 	vector< vector< cv::Point > > contours;
