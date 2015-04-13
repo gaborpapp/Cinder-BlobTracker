@@ -91,18 +91,18 @@ class BlobTracker
 	void update( const ci::Channel8u &inputChannel );
 
 	typedef void( BlobCallback )( BlobEvent );
-	typedef ci::signals::signal< BlobCallback > BlobSignal;
+	typedef ci::signals::Signal< BlobCallback > BlobSignal;
 
 	template< typename T, typename Y >
-	ci::signals::connection connectBlobsBegan( T fn, Y *inst )
+	ci::signals::Connection connectBlobsBegan( T fn, Y *inst )
 	{ return mBlobsBeganSig.connect( std::bind( fn, inst, std::placeholders::_1 ) ); }
 
 	template< typename T, typename Y >
-	ci::signals::connection connectBlobsMoved( T fn, Y *inst )
+	ci::signals::Connection connectBlobsMoved( T fn, Y *inst )
 	{ return mBlobsMovedSig.connect( std::bind( fn, inst, std::placeholders::_1 ) ); }
 
 	template< typename T, typename Y >
-	ci::signals::connection connectBlobsEnded( T fn, Y *inst )
+	ci::signals::Connection connectBlobsEnded( T fn, Y *inst )
 	{ return mBlobsEndedSig.connect( std::bind( fn, inst, std::placeholders::_1 ) ); }
 
 	template< typename T, typename Y >
@@ -113,12 +113,14 @@ class BlobTracker
 		connectBlobsEnded( fnEnded, inst );
 	}
 
+	/*
 	void disconnectBlobCallbacks()
 	{
 		mBlobsBeganSig.disconnect_all_slots();
 		mBlobsMovedSig.disconnect_all_slots();
 		mBlobsEndedSig.disconnect_all_slots();
 	}
+	*/
 
 	void reset() { mBlobs.clear(); }
 

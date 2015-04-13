@@ -133,7 +133,7 @@ void BlobTracker::trackBlobs( vector< BlobRef > newBlobs )
 
 		if ( winner == -1 ) // track has died
 		{
-			mBlobsEndedSig( BlobEvent( mBlobs[ i ] ) );
+			mBlobsEndedSig.emit( BlobEvent( mBlobs[ i ] ) );
 			mBlobs[ i ]->mId = -1; // marked for deletion
 		}
 		else
@@ -179,13 +179,13 @@ void BlobTracker::trackBlobs( vector< BlobRef > newBlobs )
 						   one. Right now I'm not doing that to prevent a
 						   recursive mess. It'll just be a new track.
 						 */
-						mBlobsEndedSig( BlobEvent( mBlobs[ j ] ) );
+						mBlobsEndedSig.emit( BlobEvent( mBlobs[ j ] ) );
 						// mark the blob for deletion
 						mBlobs[ j ]->mId = -1;
 					}
 					else // delete
 					{
-						mBlobsEndedSig( BlobEvent( mBlobs[ i ] ) );
+						mBlobsEndedSig.emit( BlobEvent( mBlobs[ i ] ) );
 						// mark the blob for deletion
 						mBlobs[ i ]->mId = -1;
 					}
@@ -228,7 +228,7 @@ void BlobTracker::trackBlobs( vector< BlobRef > newBlobs )
 					float posDelta = glm::length( tD );
 					if ( posDelta > 0.001f )
 					{
-						mBlobsMovedSig( BlobEvent( mBlobs[ i ] ) );
+						mBlobsMovedSig.emit( BlobEvent( mBlobs[ i ] ) );
 					}
 
 					// TODO: add other blob features
@@ -251,7 +251,7 @@ void BlobTracker::trackBlobs( vector< BlobRef > newBlobs )
 
 			mBlobs.push_back( newBlobs[ i ] );
 
-			mBlobsBeganSig( BlobEvent( newBlobs[ i ] ) );
+			mBlobsBeganSig.emit( BlobEvent( newBlobs[ i ] ) );
 		}
 	}
 }

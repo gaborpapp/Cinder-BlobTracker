@@ -2,9 +2,10 @@
 
 #include "cinder/PolyLine.h"
 #include "cinder/Rand.h"
-#include "cinder/app/AppNative.h"
+#include "cinder/app/App.h"
 #include "cinder/app/RendererGl.h"
 #include "cinder/params/Params.h"
+#include "cinder/gl/gl.h"
 #include "cinder/qtime/QuickTime.h"
 
 #include "mndl/blobtracker/BlobTracker.h"
@@ -14,10 +15,10 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
-class BlobTrackerApp : public AppNative
+class BlobTrackerApp : public App
 {
  public:
-	void prepareSettings( Settings *settings ) override;
+	static void prepareSettings( Settings *settings );
 	void setup() override;
 	void update() override;
 	void draw() override;
@@ -198,4 +199,4 @@ void BlobTrackerApp::keyDown( KeyEvent event )
 	}
 }
 
-CINDER_APP_NATIVE( BlobTrackerApp, RendererGl )
+CINDER_APP( BlobTrackerApp, RendererGl, BlobTrackerApp::prepareSettings )
