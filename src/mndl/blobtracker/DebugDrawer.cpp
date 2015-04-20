@@ -41,7 +41,7 @@ void DebugDrawer::draw( const BlobTrackerRef &blobTracker, const Area &bounds, c
 
 		case Options::DrawMode::THRESHOLDED:
 		{
-			 cv::Mat img = blobTracker->getImageThresholded();
+			cv::Mat img = blobTracker->getImageThresholded();
 			if ( img.data )
 			{
 				tex = gl::Texture::create( fromOcv( img ) );
