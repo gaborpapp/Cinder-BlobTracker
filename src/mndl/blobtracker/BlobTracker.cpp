@@ -51,13 +51,14 @@ void BlobTracker::update( const Channel8u &inputChannel )
 		Channel8u src( fromOcv( input ) );
 		Area insideArea( mOptions.mNormalizedRegionOfInterest.scaled( inputChannel.getSize() ) );
 
-		ci::ip::fill( &src, (uint8_t)0, Area( ivec2( 0, 0 ),
+		uint8_t fillColor = mOptions.mThresholdInvertEnabled ? 255 : 0;
+		ci::ip::fill( &src, fillColor, Area( ivec2( 0, 0 ),
 										  ivec2( w, insideArea.y1 ) ) );
-		ci::ip::fill( &src, (uint8_t)0, Area( ivec2( 0, insideArea.y1 ),
+		ci::ip::fill( &src, fillColor, Area( ivec2( 0, insideArea.y1 ),
 										  ivec2( insideArea.x1, insideArea.y2 ) ) );
-		ci::ip::fill( &src, (uint8_t)0, Area( ivec2( 0, insideArea.y2 ),
+		ci::ip::fill( &src, fillColor, Area( ivec2( 0, insideArea.y2 ),
 										  ivec2( w, h ) ) );
-		ci::ip::fill( &src, (uint8_t)0, Area( ivec2( insideArea.x2, insideArea.y1 ),
+		ci::ip::fill( &src, fillColor, Area( ivec2( insideArea.x2, insideArea.y1 ),
 										  ivec2( w, insideArea.y2 ) ) );
 		input = toOcv( src );
 	}
