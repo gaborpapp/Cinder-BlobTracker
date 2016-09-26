@@ -11,3 +11,5 @@
 *.sw[a-z]
 
 samples/BlobTracker/scons/BlobTrackerApp
+
+build
