@@ -18,7 +18,7 @@
 #pragma once
 
 #include "cinder/Channel.h"
-#include "cinder/FileSystem.h"
+#include "cinder/Filesystem.h"
 #include "cinder/Function.h"
 #include "cinder/Vector.h"
 #include "cinder/gl/Texture.h"
