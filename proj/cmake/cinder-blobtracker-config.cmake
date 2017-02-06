@@ -17,6 +17,10 @@ if ( NOT TARGET Cinder-BlobTracker )
 
 	target_include_directories( Cinder-BlobTracker PUBLIC "${CINDER_BLOBTRACKER_INCLUDES}"
 			PRIVATE "${CINDER_OPENCV3_PATH}/include" )
+	if( CINDER_MAC )
+		target_include_directories( Cinder-BlobTracker
+			PRIVATE "${CINDER_OPENCV3_PATH}/include/macosx" )
+	endif()
 
 	target_include_directories( Cinder-BlobTracker SYSTEM BEFORE PUBLIC "${CINDER_PATH}/include" )
 endif()
