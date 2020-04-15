@@ -13,8 +13,6 @@ if ( NOT TARGET Cinder-BlobTracker )
 
 	add_library( Cinder-BlobTracker ${CINDER_BLOBTRACKER_SOURCES} )
 
-	target_compile_options( Cinder-BlobTracker PUBLIC "-std=c++11" )
-
 	target_include_directories( Cinder-BlobTracker PUBLIC "${CINDER_BLOBTRACKER_INCLUDES}"
 			PRIVATE "${CINDER_OPENCV3_PATH}/include" )
 	if( CINDER_MAC )
