@@ -6,7 +6,11 @@
 #include "cinder/app/RendererGl.h"
 #include "cinder/params/Params.h"
 #include "cinder/gl/gl.h"
+#ifndef CINDER_LINUX
 #include "cinder/qtime/QuickTime.h"
+#else
+#include "cinder/qtime/QuickTimeGl.h"
+#endif
 
 #include "mndl/blobtracker/BlobTracker.h"
 #include "mndl/blobtracker/DebugDrawer.h"
@@ -33,7 +37,11 @@ class BlobTrackerApp : public App
 	mndl::blobtracker::BlobTrackerRef mBlobTracker;
 	mndl::blobtracker::DebugDrawer::Options mDebugOptions;
 
+#ifndef CINDER_LINUX
 	qtime::MovieSurfaceRef mMovie;
+#else
+	qtime::MovieGlRef mMovie; // MovieSurface is not available in Linux
+#endif
 
 	float mFps;
 
@@ -67,7 +75,11 @@ void BlobTrackerApp::loadMovie( const fs::path &moviePath )
 {
 	mStrokes.clear();
 
+#ifndef CINDER_LINUX
 	mMovie = qtime::MovieSurface::create( moviePath );
+#else
+	mMovie = qtime::MovieGl::create( moviePath );
+#endif
 	mMovie->setLoop();
 	mMovie->play();
 }
@@ -129,7 +141,13 @@ void BlobTrackerApp::update()
 
 	if ( mMovie && mMovie->checkNewFrame() )
 	{
+#ifndef CINDER_LINUX
 		mBlobTracker->update( Channel8u( *mMovie->getSurface() ) );
+#else
+		auto tex = mMovie->getTexture();
+		Channel8u ch( tex->createSource() );
+		mBlobTracker->update( ch );
+#endif
 	}
 }
 
