@@ -68,11 +68,11 @@ void BlobTracker::update( const Channel8u &inputChannel )
 	cv::Mat thresholded;
 	cv::blur( input, mBlurred, cv::Size( mOptions.mBlurSize, mOptions.mBlurSize ) );
 	cv::threshold( mBlurred, thresholded, mOptions.mThreshold, 255,
-			mOptions.mThresholdInvertEnabled ? CV_THRESH_BINARY_INV : CV_THRESH_BINARY );
+			mOptions.mThresholdInvertEnabled ? cv::THRESH_BINARY_INV : cv::THRESH_BINARY );
 	mThresholded = thresholded.clone();
 
 	vector< vector< cv::Point > > contours;
-	cv::findContours( thresholded, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE );
+	cv::findContours( thresholded, contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE );
 
 	float surfArea = inputChannel.getWidth() * inputChannel.getHeight();
 	float minAreaLimit = surfArea * mOptions.mMinArea;
