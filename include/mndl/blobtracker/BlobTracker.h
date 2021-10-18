@@ -17,6 +17,8 @@
 
 #pragma once
 
+#include "CinderOpenCV.h"
+
 #include <vector>
 
 #include "cinder/params/Params.h"
@@ -24,8 +26,6 @@
 #include "cinder/Channel.h"
 #include "cinder/Function.h"
 #include "cinder/Vector.h"
-
-#include "CinderOpenCV.h"
 
 #include "mndl/blobtracker/Blob.h"
 

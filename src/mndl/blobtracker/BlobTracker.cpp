@@ -18,14 +18,15 @@
  and Patricio Gonzalez Vivo for ofxBlobTracker,
  https://github.com/patriciogonzalezvivo/ofxBlobTracker
 */
+
+#include "mndl/blobtracker/BlobTracker.h"
+
 #include <list>
 
 #include "cinder/Area.h"
 #include "cinder/Rect.h"
 #include "cinder/app/App.h"
 #include "cinder/ip/Fill.h"
-
-#include "mndl/blobtracker/BlobTracker.h"
 
 using namespace ci;
 using namespace std;
